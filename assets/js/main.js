@@ -6,15 +6,15 @@
 
 (function($) {
 
-	var settings = {
+	// var settings = {
 
-		// Parallax background effect?
-			parallax: true,
+	// 	// Parallax background effect?
+	// 		parallax: true,
 
-		// Parallax factor (lower = more intense, higher = less intense).
-			parallaxFactor: 20
+	// 	// Parallax factor (lower = more intense, higher = less intense).
+	// 		parallaxFactor: 20
 
-	};
+	// };
 
 	skel.breakpoints({
 		xlarge: '(max-width: 1800px)',
@@ -52,8 +52,8 @@
 
 			}
 
-		// Fix: Placeholder polyfill.
-			$('form').placeholder();
+		// // Fix: Placeholder polyfill.
+		// 	$('form').placeholder();
 
 		// Prioritize "important" elements on medium.
 			skel.on('+medium -medium', function() {
@@ -74,61 +74,61 @@
 
 		// Header.
 
-			// Parallax background.
+			// // Parallax background.
 
-				// Disable parallax on IE (smooth scrolling is jerky), and on mobile platforms (= better performance).
-					if (skel.vars.browser == 'ie'
-					||	skel.vars.mobile)
-						settings.parallax = false;
+			// 	// Disable parallax on IE (smooth scrolling is jerky), and on mobile platforms (= better performance).
+			// 		if (skel.vars.browser == 'ie'
+			// 		||	skel.vars.mobile)
+			// 			settings.parallax = false;
 
-				if (settings.parallax) {
+			// 	if (settings.parallax) {
 
-					skel.on('change', function() {
+			// 		skel.on('change', function() {
 
-						if (skel.breakpoint('medium').active) {
+			// 			if (skel.breakpoint('medium').active) {
 
-							$window.off('scroll.strata_parallax');
-							$header.css('background-position', 'top left, center center');
+			// 				$window.off('scroll.strata_parallax');
+			// 				$header.css('background-position', 'top left, center center');
 
-						}
-						else {
+			// 			}
+			// 			else {
 
-							$header.css('background-position', 'left 0px');
+			// 				$header.css('background-position', 'left 0px');
 
-							$window.on('scroll.strata_parallax', function() {
-								$header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / settings.parallaxFactor)) + 'px');
-							});
+			// 				$window.on('scroll.strata_parallax', function() {
+			// 					$header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / settings.parallaxFactor)) + 'px');
+			// 				});
 
-						}
+			// 			}
 
-					});
+			// 		});
 
-					$window.on('load', function() {
-						$window.triggerHandler('scroll');
-					});
+			// 		$window.on('load', function() {
+			// 			$window.triggerHandler('scroll');
+			// 		});
 
-				}
+			// 	}
 
 		// Main Sections: Two.
 
-			// Lightbox gallery.
-				$window.on('load', function() {
+			// // Lightbox gallery.
+			// 	$window.on('load', function() {
 
-					$('#two').poptrox({
-						caption: function($a) { return $a.next('h3').text(); },
-						overlayColor: '#2c2c2c',
-						overlayOpacity: 0.85,
-						popupCloserText: '',
-						popupLoaderText: '',
-						selector: '.work-item a.image',
-						usePopupCaption: true,
-						usePopupDefaultStyling: false,
-						usePopupEasyClose: false,
-						usePopupNav: true,
-						windowMargin: (skel.breakpoint('small').active ? 0 : 50)
-					});
+			// 		$('#two').poptrox({
+			// 			caption: function($a) { return $a.next('h3').text(); },
+			// 			overlayColor: '#2c2c2c',
+			// 			overlayOpacity: 0.85,
+			// 			popupCloserText: '',
+			// 			popupLoaderText: '',
+			// 			selector: '.work-item a.image',
+			// 			usePopupCaption: true,
+			// 			usePopupDefaultStyling: false,
+			// 			usePopupEasyClose: false,
+			// 			usePopupNav: true,
+			// 			windowMargin: (skel.breakpoint('small').active ? 0 : 50)
+			// 		});
 
-				});
+			// 	});
 
 	});
 
