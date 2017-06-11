@@ -72,6 +72,9 @@
 				$footer.appendTo($header);
 			});
 
+
+			$footer.css('opacity', '1');
+
 		// Header.
 
 			// // Parallax background.
